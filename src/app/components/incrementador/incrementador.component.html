@@ -1,0 +1,31 @@
+<div class="input-group">
+
+    <!-- BOTÓN PARA DISMINUIR PORCENTAJE -->
+    <span class="input-group-btn">
+        <button type="button"
+                [ngClass]="btnClass"
+                (click)="changeValue(-5)">
+            <i class="fa fa-minus"></i>
+        </button>
+    </span>
+    
+    <!-- INPUT PARA MOSTRAR EL PORCENTAJE -->
+    <input type="number"
+            class="form-control"
+            [ngClass]="{'is-invalid': progress > 100 || progress < 0 }"
+            placeholder="Progreso"
+            min="0"
+            max="100"
+            (ngModelChange)="onChange($event)"
+            [(ngModel)]="progress"> <!-- ngModel con llaves cuadradas indica que emite y recibe valores -->
+    
+    <!-- BOTÓN PARA AUMENTAR PORCENTAJE -->
+    <span class="input-group-btn">
+        <button type="button"
+                [ngClass]="btnClass"
+                (click)="changeValue(+5)">
+            <i class="fa fa-plus"></i>
+        </button>
+    </span>
+
+</div>
